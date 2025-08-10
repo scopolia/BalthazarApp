@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Incapacidad Laboral</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de la capacidad restante</h1>
+        <form id="incapacidadForm">
+            <div class="form-group">
+                <label for="cri">Capacidad Restante Inicial (CRI) %:</label>
+                <input class="cri" type="number" id="cri" step="0.01" min="0" max="100" value="100.00" placeholder="100.00">
+                <span class="hint">(Valor por defecto: 100.00)</span>
+            </div>
+
+            <div class="form-group">
+                <label class="fp">Factores de Ponderación:</label>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="fpActivo" checked> Habilitar Factores de Ponderación
+                    </label>
+                </div>
+            </div>
+
+            <div id="factoresPonderacion" class="factors-section">
+                <div class="form-group">
+                    <label for="dificultad">Dificultad para tareas habituales:</label>
+                    <select class="dificultad1" id="dificultad">
+                        <option class="dificultad1" value="5">Leve (5%)</option>
+                        <option class="dificultad2" value="10" selected>Intermedia (10%)</option>
+                        <option class="dificultad3" value="20">Alta (20%)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="edad">Edad del trabajador:</label>
+                    <select class="edad" id="edad">
+                        <option value="5">Menos de 21 años (5%)</option>
+                        <option value="4">De 21 a 35 años (4%)</option>
+                        <option value="3">De 36 a 45 años (3%)</option>
+                        <option value="2" selected>46 años o más (2%)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Secuelas (hasta 12):</label>
+                <div id="secuelasContainer">
+                    <!-- Secuelas se agregarán aquí dinámicamente -->
+                </div>
+                <button type="button" id="agregarSecuela" class="btn secondary">+ Agregar Secuela</button>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="calcular" class="btn primary">CALCULAR</button>
+                <button type="reset" class="btn">LIMPIAR</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
