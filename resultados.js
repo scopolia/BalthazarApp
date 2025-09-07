@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Construir tabla de resultados
     let html = `
-        <h2>Formula de Balthazar: [(100 – M) x m / 100] + M</h2>
-        <p class="cri">Capacidad Restante Inicial (CRI): ${resultados.cri.toFixed(2)}%</p>
+       
+        <p class="cri"><b>Capacidad Restante Inicial (CRI):</b> ${resultados.cri.toFixed(2)}%</p>
         
         <table>
             <thead>
@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
         </table>
         
         <div class="result-section">
-            <p><strong>Subtotal:</strong> ${resultados.subtotal.toFixed(2)}%</p>
+            <p class="cri"><b>Subtotal:</b> ${resultados.subtotal.toFixed(2)}%</p></br>
     `;
     
     // Mostrar factores si aplican
     if (resultados.factores.length > 0) {
-        html += `<h3>Factores de Ponderación:</h3><ul>`;
+        html += `<p class="cri"><b>Factores de Ponderación:</b></p><ul>`;
         
         resultados.factores.forEach(factor => {
             html += `<li>${factor.nombre}: ${factor.valor}%</li>`;
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const sumaFactores = resultados.factores.reduce((sum, factor) => sum + factor.valor, 0);
         
         html += `</ul>
-            <p><strong>Subtotal Factores de Ponderación (${sumaFactores}% de ${resultados.subtotal.toFixed(2)}%):</strong> 
+            <p class="cri"><b>Subtotal Factores de Ponderación (${sumaFactores}% de ${resultados.subtotal.toFixed(2)}%):</b>
             ${resultados.subtotalFactores.toFixed(2)}%</p>`;
     } else {
         html += `<p><strong>Factores de Ponderación:</strong> No aplica</p>`;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Mostrar total
     html += `
-            <p class="result-total">Porcentaje Total (${(resultados.subtotal + resultados.subtotalFactores).toFixed(2)}% de ${resultados.cri.toFixed(2)}% CRI): 
+            <p class="cri"><b>Porcentaje Total (${(resultados.subtotal + resultados.subtotalFactores).toFixed(2)}% de ${resultados.cri.toFixed(2)}% CRI): </b>
             ${resultados.porcentajeTotal.toFixed(2)}%</p>
         </div>
     `;
