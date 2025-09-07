@@ -112,8 +112,9 @@ th {
 }
 
 .cri{
-    color: #e74c3c;
-    font-weight: bold;
+    color: black;
+    
+    font-size: 1.3rem;
 }
 .fp{
     color: blue;
